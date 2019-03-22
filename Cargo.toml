@@ -1,0 +1,11 @@
+[package]
+name = "my_ffi_pratices"
+version = "0.1.0"
+authors = ["lam"]
+edition = "2018"
+
+[dependencies]
+
+[build-dependencies]
+bindgen = "0.40.0"
+cc = "1.0"
