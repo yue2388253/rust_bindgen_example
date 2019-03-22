@@ -1,7 +1,7 @@
 [package]
-name = "my_ffi_pratices"
+name = "rust_bindgen_example"
 version = "0.1.0"
-authors = ["lam"]
+authors = ["lam <15622383059@163.com>"]
 edition = "2018"
 
 [dependencies]
