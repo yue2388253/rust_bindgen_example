@@ -1,8 +1,8 @@
-CC = g++
+CC = gcc
 CFLAGS := -Wall -fpic
 
 MKDIR_P = mkdir -p
-OUT_DIR = target
+OUT_DIR = build
 
 OBJS = $(OUT_DIR)/hello.o
 
@@ -12,9 +12,13 @@ TARGET = $(OUT_DIR)/libhello.a
 
 all: $(TARGET)
 
+run:
+	make
+	cargo run
+
 $(TARGET): $(OBJS)
 	rm -f $@
-	ar cr $@ $(OBJS)
+	ar rcs $@ $(OBJS)
 	rm -f $(OBJS)
 
 $(OBJS) : $(SRCS)
@@ -22,6 +26,8 @@ $(OBJS) : $(SRCS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(TARGET) $(OBJS)
+	rm -rf $(OUT_DIR) $(OBJS)
+	rm -rf $(CARGO_BUILD_DIR)
+	cargo clean
 
-.PHONY: clean all
+.PHONY: clean all run
