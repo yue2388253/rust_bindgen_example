@@ -12,7 +12,7 @@ fn main() {
 
     let bindings = bindgen::Builder::default()
         .header("wrapper.h")
-        .whitelist_function("hello_from_c")
+        .allowlist_function("hello_from_c")
         .generate()
         .expect("unable to generate hello bindings");
 
