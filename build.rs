@@ -12,11 +12,12 @@ fn main() {
 
     let bindings = bindgen::Builder::default()
         .header("wrapper.h")
-        .whitelist_function("hello_from_c")
+        .allowlist_function("hello_from_c")
         .generate()
         .expect("unable to generate hello bindings");
 
     let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
-    bindings.write_to_file(out_path.join("bindings.rs"))
+    bindings
+        .write_to_file(out_path.join("bindings.rs"))
         .expect("couldn't write bindings!");
 }
